@@ -33,24 +33,31 @@ public class ClassesLogic {
             System.out.println(iter.next());
         }
     }
-/*
-    public void addNewGrades(ArrayList<Classes> classes,String semester,String subject, String login, float grade)
-    {
-        for(int i = 0 ; i<classes.size(); i++) {
 
-            if(classes.get(i).getSemester().equals(semester) && classes.get(i).getSubject().equals(subject)) )
-            {
-                classes.get(i).addGrades(grade);
-            }
-            else
-            {
+    public void signUpForSubject(String semester, String subject) {
+        for(int i = 0; i<repository.size();i++) {
 
+            if(repository.get(i).getSemester().equals(semester) && repository.get(i).getSubject().equals(subject)){
+                repository.get(i).setSemesterSubjectStudent("bolek");
             }
 
         }
 
+
     }
-*/
+
+
+
+//    public void addNewGrades(String semester,String subject, String login, float grade)
+//    {
+//        for(int i = 0 ; i<classes.size(); i++) {
+//
+//
+//        }
+//
+//
+//    }
+
     public void showGrades(String semester,String subject, String name)
     {
         for(int i = 0 ; i<repository.size(); i++) {

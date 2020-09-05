@@ -42,6 +42,10 @@ public class Classes {
         return students.get(name);
     }
 
+    public void setSemesterSubjectStudent(String name) {
+        students.put(name,null);
+    }
+
 
 /*
 

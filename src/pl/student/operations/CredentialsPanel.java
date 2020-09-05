@@ -33,7 +33,7 @@ public class CredentialsPanel {
                         panel = 4;
                         break;
                     case ("student"):
-                        panel = 5;
+                        panel = 8;
                         break;
                 }
             } else {
