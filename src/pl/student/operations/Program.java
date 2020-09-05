@@ -17,7 +17,7 @@ public class Program {
         Repository<Classes> classesRepository = new ClassesRepository();
         List<Classes> classesList = classesRepository.getAll();
         ClassesLogic classesLogic = new ClassesLogic(classesList);
-        ClassesPanel classesPanel = new ClassesPanel(classesList);
+        ClassesProfessorPanel classesProfessorPannel = new ClassesProfessorPanel(classesLogic);
 
 
         Repository<Credentials> credentialsRepository = new CredentialsRepository();
@@ -44,8 +44,8 @@ public class Program {
                 case 2: // admin functions
                     panel = adminPanel.getPanel(credentialsList);
                     break;
-                case 3: // admin functions
-                    panel = professorPanel.getPanel(credentialsList);
+                case 3: // professor functions
+                    panel = classesProfessorPannel.getPanel(classesList);
                     break;
                 case 99: // admin functions
                     loopStatus = false;
