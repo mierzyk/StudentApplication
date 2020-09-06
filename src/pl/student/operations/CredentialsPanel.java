@@ -20,6 +20,7 @@ public class CredentialsPanel {
         login = scr.nextLine();
         System.out.println("Please provide password");
         password = scr.nextLine();
+        CurrentlyLogged.setLoggedUser(null);
 
         try {
             if (credentialsLogic.verifyCredentials(dataSet, login, password)) {
@@ -30,7 +31,7 @@ public class CredentialsPanel {
                         panel = 2;
                         break;
                     case ("professor"):
-                        panel = 4;
+                        panel = 3;
                         break;
                     case ("student"):
                         panel = 8;

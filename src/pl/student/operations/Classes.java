@@ -2,15 +2,13 @@ package pl.student.operations;
 
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Classes {
 
     private String semester;
     private String subject;
-    private Map<String, ArrayList<Float>> students;
+    private Map<String, List<Float>> students;
 
     public Classes(String semester,String subject)
     {
@@ -37,22 +35,36 @@ public class Classes {
         return this.students.size();
     }
 
-    public ArrayList<Float> getStudentsGrades(String name)
+    public Set<String> getStudentName() {
+        return students.keySet();
+    }
+
+
+
+    public void setSemesterSubjectStudent(String name) {
+        Map<String, List<Float>> tempMap = new HashMap<String, List<Float>>();
+        students = tempMap;
+        students.put(name,new ArrayList<>());
+    }
+
+    public List<Float> getStudentsGrades(String name)
     {
         return students.get(name);
     }
 
-    public void setSemesterSubjectStudent(String name) {
-        students.put(name,null);
+    public void setStudentsGrade(String name, Float grade)
+    {
+        students.get(name).add(grade);
     }
 
 
-/*
+
+
 
     public Set<String> getStudents() {
         return this.students.keySet();
     }
-
+/*
     public List<Float> getGrades(String login)
     {
         return this.students.entrySet();

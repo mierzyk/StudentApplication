@@ -7,10 +7,10 @@ import java.util.Scanner;
 import pl.student.Credentials;
 import pl.student.operations.UserType;
 
-public class AdminPanel {
+public class CredentialsAdminPanel {
 
     private CredentialsLogic credentialsLogic;
-    public AdminPanel(CredentialsLogic credentialsLogic) {
+    public CredentialsAdminPanel(CredentialsLogic credentialsLogic) {
         this.credentialsLogic = credentialsLogic;
     }
 

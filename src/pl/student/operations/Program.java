@@ -26,8 +26,9 @@ public class Program {
         CredentialsPanel credentialsPanel = new CredentialsPanel(credentialsLogic);
 
 
-        AdminPanel adminPanel = new AdminPanel(credentialsLogic);
+        CredentialsAdminPanel adminPanel = new CredentialsAdminPanel(credentialsLogic);
         //ClassesLogic classesLogic = new ClassesLogic(credentialsList);
+
 
 
         boolean loopStatus = true;
