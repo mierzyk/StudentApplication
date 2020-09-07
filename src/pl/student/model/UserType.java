@@ -1,4 +1,4 @@
-package pl.student.repository;
+package pl.student.model;
 
 public enum UserType {
     ADMIN, PROFESSOR, STUDENT;

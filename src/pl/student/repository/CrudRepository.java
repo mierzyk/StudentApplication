@@ -2,11 +2,11 @@ package pl.student.repository;
 
 import java.util.List;
 
-public interface CrudRepository<T> {
+public interface CrudRepository<T, I> {
 
-    T get();
+    T get(I id); //zwraca pojedunczy obiekt
 
-    List<T> getAll();
+    List<T> getAll(); //ewentualnie collection
 
     T save(T o);
 

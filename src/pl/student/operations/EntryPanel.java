@@ -1,11 +1,13 @@
 package pl.student.operations;
+import pl.student.service.EntryService;
+
 import java.util.Scanner;
 
 public class EntryPanel {
 
-    private EntryLogic entryLogic;
+    private EntryService entryLogic;
 
-    public EntryPanel(EntryLogic entryLogic) {
+    public EntryPanel(EntryService entryLogic) {
         this.entryLogic = entryLogic;
     }
 

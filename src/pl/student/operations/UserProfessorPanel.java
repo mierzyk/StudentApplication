@@ -1,10 +1,12 @@
 package pl.student.operations;
+import pl.student.service.UserProfessorStudentService;
+
 import java.util.Scanner;
 
 public class UserProfessorPanel {
 
-    UserProfessorStudentLogic logic;
-    UserProfessorPanel(UserProfessorStudentLogic logic) {
+    UserProfessorStudentService logic;
+    UserProfessorPanel(UserProfessorStudentService logic) {
         this.logic = logic;
     }
 

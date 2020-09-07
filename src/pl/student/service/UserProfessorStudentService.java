@@ -1,24 +1,26 @@
-package pl.student.operations;
-import pl.student.repository.Assignments;
-import pl.student.repository.Subjects;
-import pl.student.repository.Users;
-import pl.student.repository.UserType;
+package pl.student.service;
+import pl.student.model.Assignment;
+import pl.student.model.Subject;
+import pl.student.model.User;
+import pl.student.model.UserType;
+import pl.student.operations.CurrentlyLogged;
+
 import java.util.*;
 
-public class UserProfessorStudentLogic {
+public class UserProfessorStudentService {
 
-    private List<Subjects> subjects;
-    private List<Assignments> assignments;
-    private List<Users> users;
+    private List<Subject> subjects;
+    private List<Assignment> assignments;
+    private List<User> users;
 
-    public UserProfessorStudentLogic(List<Subjects> repository, List<Assignments> assignments, List<Users> users) {
+    public UserProfessorStudentService(List<Subject> repository, List<Assignment> assignments, List<User> users) {
         this.subjects = repository;
         this.assignments = assignments;
         this.users = users;
     }
 
     public void addSubjectSemesters(String semester, String subject) {
-        subjects.add(new Subjects(semester, subject));
+        subjects.add(new Subject(semester, subject));
         System.out.println("New semester subject pair has been added.");
 
     }
@@ -27,7 +29,7 @@ public class UserProfessorStudentLogic {
 
         TreeSet<String> subjects = new TreeSet<>();
 
-        for (Subjects singleSubject : this.subjects) {
+        for (Subject singleSubject : this.subjects) {
             subjects.add(singleSubject.getSemester() + " " + singleSubject.getSubject());
         }
 
@@ -43,14 +45,14 @@ public class UserProfessorStudentLogic {
         int tempSubjectId = 0;
         boolean noExist = true;
 
-        for (Subjects singleSubject : this.subjects) {
+        for (Subject singleSubject : this.subjects) {
             if (singleSubject.getSemester().equals(semester) && singleSubject.getSubject().equals(subject)) {
                 tempSubjectId = singleSubject.getsubjectsId();
                 break;
             }
         }
 
-        for (Assignments singleAssignment : this.assignments) {
+        for (Assignment singleAssignment : this.assignments) {
             if (singleAssignment.getSubjectId() == tempSubjectId) {
                 System.out.println(singleAssignment.getName());
                 noExist = false;
@@ -68,14 +70,14 @@ public class UserProfessorStudentLogic {
         int tempSubjectId = 0;
         boolean noExist = true;
 
-        for (Subjects singleSubject : this.subjects) {
+        for (Subject singleSubject : this.subjects) {
             if (singleSubject.getSemester().equals(semester) && singleSubject.getSubject().equals(subject)) {
                 tempSubjectId = singleSubject.getsubjectsId();
                 break;
             }
         }
 
-        for (Assignments singleAssignment : this.assignments) {
+        for (Assignment singleAssignment : this.assignments) {
             if (singleAssignment.getSubjectId() == tempSubjectId && singleAssignment.getName().equals(name)) {
                 System.out.println(singleAssignment.getGrades());
                 noExist = false;
@@ -95,14 +97,14 @@ public class UserProfessorStudentLogic {
         boolean noGrades = true;
         boolean noExists = true;
 
-        for (Subjects singleSubject : this.subjects) {
+        for (Subject singleSubject : this.subjects) {
             if (singleSubject.getSemester().equals(semester) && singleSubject.getSubject().equals(subject)) {
                 tempSubjectId = singleSubject.getsubjectsId();
                 break;
             }
         }
 
-        for (Assignments singleAssignment : this.assignments) {
+        for (Assignment singleAssignment : this.assignments) {
             if (singleAssignment.getSubjectId() == tempSubjectId && singleAssignment.getName().equals(name)) {
 
                 noExists = false;
@@ -128,14 +130,14 @@ public class UserProfessorStudentLogic {
         int tempSubjectId = 0;
         boolean noExist = true;
 
-        for (Subjects singleSubject : this.subjects) {
+        for (Subject singleSubject : this.subjects) {
             if (singleSubject.getSemester().equals(semester) && singleSubject.getSubject().equals(subject)) {
                 tempSubjectId = singleSubject.getsubjectsId();
                 break;
             }
         }
 
-        for (Assignments singleAssignment : this.assignments) {
+        for (Assignment singleAssignment : this.assignments) {
             if (singleAssignment.getSubjectId() == tempSubjectId && singleAssignment.getName().equals(name)) {
                 singleAssignment.setGrades(grade);
                 noExist = false;
@@ -149,7 +151,7 @@ public class UserProfessorStudentLogic {
     public boolean getUnexistingSemester(String semester) {
         boolean returner = true;
 
-        for (Subjects singleSemester : this.subjects) {
+        for (Subject singleSemester : this.subjects) {
             if (singleSemester.getSemester().equals(semester)) {
                 returner = false;
                 break;
@@ -161,7 +163,7 @@ public class UserProfessorStudentLogic {
 
     public boolean getUnexistingSubject(String subject) {
         boolean returner = true;
-        for (Subjects singleSubject : this.subjects) {
+        for (Subject singleSubject : this.subjects) {
             if (singleSubject.getSubject().equals(subject)) {
                 returner = false;
                 break;
@@ -172,8 +174,8 @@ public class UserProfessorStudentLogic {
 
     public boolean getUnexistingStudent(String name) {
         boolean returner = true;
-        for (Users singleUsers : this.users) {
-            if (singleUsers.getName().equals(name) && singleUsers.getAccessLevel().equals(UserType.STUDENT)) {
+        for (User singleUser : this.users) {
+            if (singleUser.getName().equals(name) && singleUser.getAccessLevel().equals(UserType.STUDENT)) {
                 returner = false;
                 break;
             }
@@ -183,25 +185,25 @@ public class UserProfessorStudentLogic {
 
     public void signUpForSubject(String semester, String subject) {
         int tempSubjectId = 0;
-        for (Subjects singleSubject : this.subjects) {
+        for (Subject singleSubject : this.subjects) {
             if (singleSubject.getSemester().equals(semester) && singleSubject.getSubject().equals(subject)) {
                 tempSubjectId = singleSubject.getsubjectsId();
                 break;
             }
         }
-        assignments.add(new Assignments(tempSubjectId, CurrentlyLogged.getLoggedUser()));
+        assignments.add(new Assignment(tempSubjectId, CurrentlyLogged.getLoggedUser()));
     }
 
     public void getStudentSignUps() {
         List<Integer> tempSubjectIdList = new ArrayList<>();
         boolean noExist = true;
-        for (Assignments singleAssignment : this.assignments) {
+        for (Assignment singleAssignment : this.assignments) {
             if (singleAssignment.getName().equals(CurrentlyLogged.getLoggedUser())) {
                 tempSubjectIdList.add(singleAssignment.getSubjectId());
             }
         }
         for (Integer singleInteger : tempSubjectIdList) {
-            for (Subjects singleSubject : this.subjects) {
+            for (Subject singleSubject : this.subjects) {
                 if (singleSubject.getsubjectsId() == singleInteger) {
                     System.out.println(singleSubject.getSemester() + " " + singleSubject.getSubject());
                     noExist = false;

@@ -1,34 +1,37 @@
 package pl.student.repository;
-import pl.student.databseimitation.DatabaseUsers;
+import pl.student.infrastructure.DatabaseUser;
+import pl.student.model.User;
+
 import java.util.List;
 
-public class UsersRepository implements CrudRepository<Users> {
+//public class UsersRepository implements CrudRepository<Users> {
+public class UsersRepository implements CrudRepository<User> {
 
 
-    DatabaseUsers databaseUsers = new DatabaseUsers();
+    DatabaseUser databaseUsers = new DatabaseUser();
 
     @Override
-    public Users get() {
+    public User get() {
         return null;
     }
 
     @Override
-    public List<Users> getAll() {
+    public List<User> getAll() {
         return databaseUsers.getData();
     }
 
     @Override
-    public Users save(Users o) {
+    public User save(User o) {
         return null;
     }
 
     @Override
-    public Users update(Users o) {
+    public User update(User o) {
         return null;
     }
 
     @Override
-    public void delete(Users o) {
+    public void delete(User o) {
 
     }
 }

@@ -1,20 +1,22 @@
 package pl.student.repository;
 
-import pl.student.databseimitation.DatabaseAssignments;
+import pl.student.infrastructure.DatabaseAssignment;
+import pl.student.model.Assignment;
 
 import java.util.List;
 
-public class AssignmentsRepository implements CrudRepository {
+//public class AssignmentsRepository implements CrudRepository {
+public class AssignmentsRepository implements CrudRepository<Assignment> {
 
-    DatabaseAssignments databaseAssignments = new DatabaseAssignments();
+    DatabaseAssignment databaseAssignments = new DatabaseAssignment();
 
     @Override
     public Object get() {
-        return null;
+        ;
     }
 
     @Override
-    public List<Assignments> getAll() {
+    public List<Assignment> getAll() {
         return databaseAssignments.getData();
     }
 

@@ -1,12 +1,12 @@
-package pl.student.repository;
+package pl.student.model;
 
-public class Subjects {
+public class Subject {
     private String semester;
     private String subject;
     public static int currentId;
     private int subjectsId;
 
-    public Subjects(String semester, String subject) {
+    public Subject(String semester, String subject) {
         this.semester = semester;
         this.subject = subject;
         this.subjectsId = ++currentId;

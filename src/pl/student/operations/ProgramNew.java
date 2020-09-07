@@ -1,5 +1,10 @@
 package pl.student.operations;
-import pl.student.repository.Users;
+import pl.student.service.EntryService;
+import pl.student.service.UserAdminService;
+import pl.student.service.UserProfessorStudentService;
+import pl.student.model.Assignment;
+import pl.student.model.Subject;
+import pl.student.model.User;
 import pl.student.repository.*;
 import java.util.List;
 
@@ -11,15 +16,15 @@ public class ProgramNew {
         CrudRepository tempUserRepository = new UsersRepository();
         CrudRepository tempSubjectsRepository = new SubjectsRepository();
         CrudRepository tempAssignmentsRepository = new AssignmentsRepository();
-        List<Users> usersRepository = tempUserRepository.getAll(); //userDB costam
-        List<Subjects> subjectsRepository = tempSubjectsRepository.getAll();
-        List<Assignments> assignmentRepository = tempAssignmentsRepository.getAll();
+        List<User> userRepository = tempUserRepository.getAll(); //userDB costam
+        List<Subject> subjectsRepository = tempSubjectsRepository.getAll();
+        List<Assignment> assignmentRepository = tempAssignmentsRepository.getAll();
 
-        EntryLogic entryLogic = new EntryLogic(usersRepository);
+        EntryService entryLogic = new EntryService(userRepository);
         EntryPanel entryPanel = new EntryPanel(entryLogic);
-        UserAdminLogic userAdminLogic = new UserAdminLogic(usersRepository);
+        UserAdminService userAdminLogic = new UserAdminService(userRepository);
         UserAdminPanel userAdminPanel = new UserAdminPanel(userAdminLogic);
-        UserProfessorStudentLogic userProfessorStudentLogic = new UserProfessorStudentLogic(subjectsRepository, assignmentRepository, usersRepository);
+        UserProfessorStudentService userProfessorStudentLogic = new UserProfessorStudentService(subjectsRepository, assignmentRepository, userRepository);
         UserProfessorPanel userProfessorPanel = new UserProfessorPanel(userProfessorStudentLogic);
         UserStudentPanel userStudentPanel = new UserStudentPanel(userProfessorStudentLogic);
 

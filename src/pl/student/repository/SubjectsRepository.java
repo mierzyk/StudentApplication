@@ -1,13 +1,14 @@
 package pl.student.repository;
 
-import pl.student.databseimitation.DatabaseSubjects;
+import pl.student.infrastructure.DatabaseSubject;
+import pl.student.model.Subject;
 
 import java.util.List;
-import java.util.Set;
 
-public class SubjectsRepository implements CrudRepository {
+//public class SubjectsRepository implements CrudRepository {
+public class SubjectsRepository implements CrudRepository<Subject> {
 
-    DatabaseSubjects databaseSubjects = new DatabaseSubjects();
+    DatabaseSubject databaseSubjects = new DatabaseSubject();
 
 
     @Override
@@ -16,7 +17,7 @@ public class SubjectsRepository implements CrudRepository {
     }
 
     @Override
-    public List<Subjects> getAll() {
+    public List<Subject> getAll() {
         return databaseSubjects.getData();
     }
 
