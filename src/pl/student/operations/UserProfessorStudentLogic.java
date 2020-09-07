@@ -1,11 +1,8 @@
 package pl.student.operations;
-
-
 import pl.student.repository.Assignments;
 import pl.student.repository.Subjects;
 import pl.student.repository.Users;
 import pl.student.repository.UserType;
-
 import java.util.*;
 
 public class UserProfessorStudentLogic {
@@ -59,7 +56,9 @@ public class UserProfessorStudentLogic {
                 noExist = false;
             }
         }
-    if (noExist) {System.out.println("There are no subjects you are signed up for.");}
+        if (noExist) {
+            System.out.println("There are students signed up for this semester-subject pair.\n");
+        }
 
 
     }
@@ -83,7 +82,9 @@ public class UserProfessorStudentLogic {
                 break;
             }
         }
-        if (noExist) {System.out.println("There are no grades.\n");}
+        if (noExist) {
+            System.out.println("There are no grades.\n");
+        }
 
     }
 
@@ -110,7 +111,7 @@ public class UserProfessorStudentLogic {
                     counter = counter + 1;
                     noGrades = false;
                 }
-                if (counter>0) {
+                if (counter > 0) {
                     System.out.println(tempGradesSum / counter);
                 }
 
@@ -118,12 +119,14 @@ public class UserProfessorStudentLogic {
         }
         if (noExists) {
             System.out.println("Such combination of semester - subject - student does not exist\n");
+        } else if (noGrades) {
+            System.out.println("There are no grades.\n");
         }
-        else if (noGrades) {System.out.println("There are no grades.\n");}
     }
 
     public void addNewGrade(String semester, String subject, String name, Float grade) {
         int tempSubjectId = 0;
+        boolean noExist = true;
 
         for (Subjects singleSubject : this.subjects) {
             if (singleSubject.getSemester().equals(semester) && singleSubject.getSubject().equals(subject)) {
@@ -135,7 +138,11 @@ public class UserProfessorStudentLogic {
         for (Assignments singleAssignment : this.assignments) {
             if (singleAssignment.getSubjectId() == tempSubjectId && singleAssignment.getName().equals(name)) {
                 singleAssignment.setGrades(grade);
+                noExist = false;
             }
+        }
+        if (noExist) {
+            System.out.println("Such student is not signed up for this semester - subject pair");
         }
     }
 
@@ -197,12 +204,14 @@ public class UserProfessorStudentLogic {
             for (Subjects singleSubject : this.subjects) {
                 if (singleSubject.getsubjectsId() == singleInteger) {
                     System.out.println(singleSubject.getSemester() + " " + singleSubject.getSubject());
-                    noExist=false;
+                    noExist = false;
                 }
             }
         }
 
-        if (noExist) {System.out.println("There are no subjects you are signed up for.\n");}
+        if (noExist) {
+            System.out.println("There are no subjects you are signed up for.\n");
+        }
     }
 
 }

@@ -11,7 +11,7 @@ public class ProgramNew {
         CrudRepository tempUserRepository = new UsersRepository();
         CrudRepository tempSubjectsRepository = new SubjectsRepository();
         CrudRepository tempAssignmentsRepository = new AssignmentsRepository();
-        List<Users> usersRepository = tempUserRepository.getAll();
+        List<Users> usersRepository = tempUserRepository.getAll(); //userDB costam
         List<Subjects> subjectsRepository = tempSubjectsRepository.getAll();
         List<Assignments> assignmentRepository = tempAssignmentsRepository.getAll();
 

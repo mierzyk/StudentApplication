@@ -10,7 +10,6 @@ public class UserStudentPanel {
         this.logic = logic;
     }
 
-
     public int getPanel() {
 
         String panel;
