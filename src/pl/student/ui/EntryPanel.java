@@ -1,17 +1,18 @@
-package pl.student.operations;
+package pl.student.ui;
+import pl.student.application.CurrentlyLogged;
 import pl.student.service.EntryService;
 
 import java.util.Scanner;
 
 public class EntryPanel {
 
-    private EntryService entryLogic;
+    EntryService entryLogic;
 
     public EntryPanel(EntryService entryLogic) {
         this.entryLogic = entryLogic;
     }
 
-    protected int getPanel() {
+    public int getPanel() {
 
         String name;
         String password;

@@ -17,10 +17,6 @@ public class Subject {
         return semester;
     }
 
-    public void setSemester(String semester) {
-        this.semester = semester;
-    }
-
     public String getSubject() {
         return subject;
     }

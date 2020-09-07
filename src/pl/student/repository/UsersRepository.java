@@ -4,34 +4,34 @@ import pl.student.model.User;
 
 import java.util.List;
 
-//public class UsersRepository implements CrudRepository<Users> {
-public class UsersRepository implements CrudRepository<User> {
+
+public class UsersRepository implements CrudRepository<User, String> {
 
 
-    DatabaseUser databaseUsers = new DatabaseUser();
+    DatabaseUser databaseUser = new DatabaseUser();
 
     @Override
-    public User get() {
-        return null;
+    public User get(String id) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<User> getAll() {
-        return databaseUsers.getData();
+        return databaseUser.getData();
     }
 
     @Override
     public User save(User o) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public User update(User o) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void delete(User o) {
-
+        throw new UnsupportedOperationException();
     }
 }

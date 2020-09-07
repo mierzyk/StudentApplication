@@ -6,12 +6,12 @@ public class Assignment {
 
     private int subjectId;
     private String name;
-    ArrayList<Float> grades;
+    ArrayList<Float> grade;
 
     public Assignment(int subjectId, String name) {
         this.subjectId = subjectId;
         this.name = name;
-        this.grades = new ArrayList<>();
+        this.grade = new ArrayList<>();
     }
 
 
@@ -23,12 +23,12 @@ public class Assignment {
         return this.name;
     }
 
-    public ArrayList<Float> getGrades() {
-        return this.grades;
+    public ArrayList<Float> getGrade() {
+        return this.grade;
     }
 
-    public void setGrades(Float grade) {
-        grades.add(grade);
+    public void setGrade(Float grade) {
+        this.grade.add(grade);
     }
 
 

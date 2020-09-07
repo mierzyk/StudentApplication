@@ -1,14 +1,11 @@
 # StudentApplication2
 
-credentials repository initial data
-logins - password - type
-admin - admin - admin
-jan - kowalski - professor
-student - adam - nowak
-
-classes repository initial data
-semester - subject - Map<String, - ArrayList<Float>>
-term1 - statistics - null - null
-term1 - social science - null - null
-term2 - social science - null - null
-term3 - statistics - null - null
+1. check pl.student.infrastructure for example data feed
+2. application is console driven, provide numeric values according to instructions to switch between panels
+3. basic functionalities:
+    admin user may add new accounts
+    professor user may add new semester-subject pairs and manage individual student's grades
+    students may sign up for subjects and check their grades
+    application imitates repository pattern
+4. to start application just import project and run code, no additional features are needed
+5. start logging with name "admin" and password "admin" to get things rolling

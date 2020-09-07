@@ -6,10 +6,11 @@ import java.util.List;
 public class EntryService {
 
 
-    private List<User> repository;
+    private List<User> user;
+
 
     public EntryService(List<User> repository) {
-        this.repository = repository;
+        this.user = repository;
     }
 
 
@@ -17,7 +18,7 @@ public class EntryService {
 
 
         boolean returnValue = false;
-        for (User singleUser : repository) {
+        for (User singleUser : user) {
             if (singleUser.getName().contentEquals(login) && singleUser.getPassword().contentEquals(password)) {
                 returnValue = true;
                 break;
@@ -30,7 +31,7 @@ public class EntryService {
 
     public UserType returnTypeForLogin(String login) {
         UserType returnValue = UserType.STUDENT;
-        for (User singleUser : repository) {
+        for (User singleUser : user) {
             if (singleUser.getName().contentEquals(login)) {
                 returnValue = singleUser.getAccessLevel();
                 break;

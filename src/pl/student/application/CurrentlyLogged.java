@@ -1,4 +1,4 @@
-package pl.student.operations;
+package pl.student.application;
 
 
 public class CurrentlyLogged {

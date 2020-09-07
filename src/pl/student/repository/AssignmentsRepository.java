@@ -6,32 +6,34 @@ import pl.student.model.Assignment;
 import java.util.List;
 
 //public class AssignmentsRepository implements CrudRepository {
-public class AssignmentsRepository implements CrudRepository<Assignment> {
+public class AssignmentsRepository implements CrudRepository<Assignment, Integer> {
 
-    DatabaseAssignment databaseAssignments = new DatabaseAssignment();
+    DatabaseAssignment databaseAssignment = new DatabaseAssignment();
+
 
     @Override
-    public Object get() {
-        ;
+    public Assignment get(Integer id) {
+        return null;
     }
 
     @Override
     public List<Assignment> getAll() {
-        return databaseAssignments.getData();
+        return databaseAssignment.getData();
     }
 
     @Override
-    public Object save(Object o) {
+    public Assignment save(Assignment o) {
         return null;
     }
 
     @Override
-    public Object update(Object o) {
+    public Assignment update(Assignment o) {
         return null;
     }
 
     @Override
-    public void delete(Object o) {
+    public void delete(Assignment o) {
 
     }
 }
+

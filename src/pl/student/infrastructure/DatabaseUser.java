@@ -6,20 +6,21 @@ import java.util.List;
 
 public class DatabaseUser {
 
-        List<User> databaseUsers;
+
+        List<User> databaseUser;
 
         public DatabaseUser()
         {
-            this.databaseUsers = new ArrayList<User>();
-            this.databaseUsers.add(new User("admin", "admin", UserType.ADMIN ));
-            this.databaseUsers.add(new User("jkowalski", "password",UserType.PROFESSOR ));
-            this.databaseUsers.add(new User("anowak", "password",UserType.STUDENT ));
-            this.databaseUsers.add(new User("bwozniak", "password",UserType.STUDENT ));
+            this.databaseUser = new ArrayList<User>();
+            this.databaseUser.add(new User("admin", "admin", UserType.ADMIN ));
+            this.databaseUser.add(new User("jkowalski", "password",UserType.PROFESSOR ));
+            this.databaseUser.add(new User("anowak", "password",UserType.STUDENT ));
+            this.databaseUser.add(new User("bwozniak", "password",UserType.STUDENT ));
         }
 
         public List<User> getData()
         {
-            return databaseUsers;
+            return databaseUser;
         }
 
 }

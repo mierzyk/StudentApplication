@@ -1,13 +1,15 @@
-package pl.student.operations;
-import pl.student.service.UserProfessorStudentService;
+package pl.student.ui;
+
+import pl.student.service.UserProfessorService;
 
 import java.util.Scanner;
 
 public class UserProfessorPanel {
 
-    UserProfessorStudentService logic;
-    UserProfessorPanel(UserProfessorStudentService logic) {
-        this.logic = logic;
+    UserProfessorService service;
+
+    public UserProfessorPanel(UserProfessorService service) {
+        this.service = service;
     }
 
     public int getPanel() {
@@ -40,34 +42,34 @@ public class UserProfessorPanel {
                 System.out.println("type in subject name");
                 subject = scr.next();
                 scr.nextLine();
-                logic.addSubjectSemesters(semester, subject);
+                service.addSubjectSemester(semester, subject);
                 System.out.println("New semester - subject pair has been added\n");
                 panel = "3";
                 break;
 
             case ("5"):
-                logic.getUniqueSubjectSemesters();
+                service.getUniqueSubjectSemesters();
                 panel = "3";
                 break;
 
             case ("6"):
                 System.out.println("Type in semester name.");
                 semester = scr.next();
-                if (logic.getUnexistingSemester(semester)) {
+                if (service.getUnexistingSemester(semester)) {
                     System.out.println("Such semester name does not exist.\n");
                     panel = "3";
                     break;
                 }
                 System.out.println("Type in subject name.");
                 subject = scr.next();
-                if (logic.getUnexistingSubject(subject)) {
+                if (service.getUnexistingSubject(subject)) {
                     System.out.println("Such subject name does not exist.\n");
                     panel = "3";
                     break;
                 }
                 System.out.println("type in student's name");
                 name = scr.next();
-                if (logic.getUnexistingStudent(name)) {
+                if (service.getUnexistingStudent(name)) {
                     System.out.println("Such student name does not exist.\n");
                     panel = "3";
                     break;
@@ -78,78 +80,78 @@ public class UserProfessorPanel {
                 } catch (NumberFormatException e) {
                     System.out.println("Please provide grade as a number");
                 }
-                logic.addNewGrade(semester, subject, name, grade);
+                service.addNewGrade(semester, subject, name, grade);
                 panel = "3";
                 break;
 
             case ("7"):
                 System.out.println("Type in semester name.");
                 semester = scr.next();
-                if (logic.getUnexistingSemester(semester)) {
+                if (service.getUnexistingSemester(semester)) {
                     System.out.println("Such semester name does not exist.\n");
                     panel = "3";
                     break;
                 }
                 System.out.println("Type in subject name.");
                 subject = scr.next();
-                if (logic.getUnexistingSubject(subject)) {
+                if (service.getUnexistingSubject(subject)) {
                     System.out.println("Such subject name does not exist.\n");
                     panel = "3";
                     break;
                 }
                 System.out.println("type in student's name");
                 name = scr.next();
-                if (logic.getUnexistingStudent(name)) {
+                if (service.getUnexistingStudent(name)) {
                     System.out.println("Such student name does not exist.\n");
                     panel = "3";
                     break;
                 }
-                logic.showGrades(semester, subject, name);
+                service.showGrades(semester, subject, name);
                 panel = "3";
                 break;
 
             case ("14"):
                 System.out.println("Type in semester name.");
                 semester = scr.next();
-                if (logic.getUnexistingSemester(semester)) {
+                if (service.getUnexistingSemester(semester)) {
                     System.out.println("Such semester name does not exist.\n");
                     panel = "3";
                     break;
                 }
                 System.out.println("Type in subject name.");
                 subject = scr.next();
-                if (logic.getUnexistingSubject(subject)) {
+                if (service.getUnexistingSubject(subject)) {
                     System.out.println("Such subject name does not exist.\n");
                     panel = "3";
                     break;
                 }
-                logic.getSubjectSignUps(semester, subject);
+                service.getSubjectSignUps(semester, subject);
                 panel = "3";
                 break;
 
             case ("15"):
                 System.out.println("Type in semester name.");
                 semester = scr.next();
-                if (logic.getUnexistingSemester(semester)) {
+                if (service.getUnexistingSemester(semester)) {
                     System.out.println("Such semester name does not exist.\n");
                     panel = "3";
                     break;
                 }
                 System.out.println("Type in subject name.");
                 subject = scr.next();
-                if (logic.getUnexistingSubject(subject)) {
+                if (service.getUnexistingSubject(subject)) {
                     System.out.println("Such subject name does not exist.\n");
                     panel = "3";
                     break;
                 }
                 System.out.println("type in student's name");
                 name = scr.next();
-                if (logic.getUnexistingStudent(name)) {
+                if (service.getUnexistingStudent(name)) {
                     System.out.println("Such student name does not exist.\n");
                     panel = "3";
                     break;
                 }
-                logic.calculateAverageGrade(semester, subject, name);
+                service.calculateAverageGrade(semester, subject, name);
                 panel = "3";
                 break;
 
