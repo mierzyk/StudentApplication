@@ -28,7 +28,6 @@ public class ProgramNew {
         EntryPanel entryPanel = new EntryPanel(entryService);
         UserAdminService userAdminService = new UserAdminService(userDbImage);
         UserAdminPanel userAdminPanel = new UserAdminPanel(userAdminService);
-        //UserProfessorStudentService UserUniversityService = new UserProfessorStudentService(subjectDbImage, assignmentDbImage, userDbImage);
 
         UserProfessorService userProfessorService = new UserProfessorService(subjectDbImage, assignmentDbImage, userDbImage);
         UserStudentService userStudentService = new UserStudentService(subjectDbImage, assignmentDbImage, userDbImage);

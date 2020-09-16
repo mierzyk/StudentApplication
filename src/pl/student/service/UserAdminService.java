@@ -17,20 +17,19 @@ public class UserAdminService {
 
     public void getCredentials() {
         System.out.println("type - login - password");
-        for(User singleUser : user)
+        for (User singleUser : user)
             System.out.println(singleUser.getAccessLevel() + "-" + singleUser.getName() + "-" + singleUser.getPassword());
         System.out.println("\n");
     }
 
 
-    public void addNewAccount(String name, String password,UserType type) {
+    public void addNewAccount(String name, String password, UserType type) {
         user.add(new User(name, password, type));
     }
 
     public void removeAccount(String name) {
-        for(int i =0; i<user.size(); i++) {
-            if(user.get(i).getName().contentEquals(name))
-            {
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getName().contentEquals(name)) {
                 user.remove(i);
             }
         }

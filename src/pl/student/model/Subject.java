@@ -10,7 +10,6 @@ public class Subject {
         this.semester = semester;
         this.subject = subject;
         this.subjectsId = ++currentId;
-
     }
 
     public String getSemester() {

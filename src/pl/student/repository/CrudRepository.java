@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface CrudRepository<T, I> {
 
-    T get(I id); //zwraca pojedunczy obiekt
+    T get(I id);
 
-    List<T> getAll(); //ewentualnie collection
+    List<T> getAll();
 
     T save(T o);
 

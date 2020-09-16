@@ -22,7 +22,6 @@ public class EntryService {
             if (singleUser.getName().contentEquals(login) && singleUser.getPassword().contentEquals(password)) {
                 returnValue = true;
                 break;
-
             }
         }
         return returnValue;

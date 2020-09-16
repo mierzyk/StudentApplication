@@ -13,7 +13,7 @@ public class AssignmentsRepository implements CrudRepository<Assignment, Integer
 
     @Override
     public Assignment get(Integer id) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -23,17 +23,15 @@ public class AssignmentsRepository implements CrudRepository<Assignment, Integer
 
     @Override
     public Assignment save(Assignment o) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Assignment update(Assignment o) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public void delete(Assignment o) {
-
-    }
+    public void delete(Assignment o) { throw new UnsupportedOperationException(); }
 }
 
